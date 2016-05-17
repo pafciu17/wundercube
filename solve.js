@@ -39,9 +39,9 @@ const getNextPositions = (position, cube) => {
           position[2] + k
         ];
         if (
-          i != position[0]
-          || j != position[1]
-          || k != position[2]
+          checkPosition[0] != position[0]
+          || checkPosition[1] != position[1]
+          || checkPosition[2] != position[2]
         ) {
           const character = getCharacterFromCube(checkPosition, cube);
           if (character) {
@@ -106,7 +106,19 @@ const getAllPositions = (cube) => {
   return allPositions;
 };
 
+const removeRepetition = (words) => {
+  const result = []
+
+  words.forEach(word => {
+    if (result.indexOf(word) === -1) {
+      result.push(word);
+    }
+  });
+  return result;
+}
+
 module.exports = (words, cube) => {
   const allPositions = getAllPositions(cube);
-  return solveCase('', allPositions, words, cube);
+  const foundWords = solveCase('', allPositions, words, cube);
+  return removeRepetition(foundWords);
 }
