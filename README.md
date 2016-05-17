@@ -1,5 +1,5 @@
 # wundercube
-Solution for 3d wundercube problem
+Solution for 3d wundercube problem: http://www.wunderdog.fi/wunderkuutio
 
 Implemented in javascript, requires node.js to execute.
 
